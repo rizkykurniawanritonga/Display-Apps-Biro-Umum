@@ -154,7 +154,7 @@ body:before {
             <div class='col-md-12 mb-5 text-center logoatas'>
                 <img src='img/logopemprovsu.png'>
                 <h3>DASHBOARD BIRO UMUM</h3>
-                <h5 class='tanggal'></h5>
+                <h5><span class='tanggal'></span>&nbsp;-&nbsp;<span class='clock'></span></h5>
             </div>
             <div class='col-md-12'>
                 <div class='slideinah'>
@@ -302,7 +302,7 @@ myChart2 = new Chart(ctxabsen, {
         labels: lblAbsen,
         datasets: [{
             label: lvdt,
-            data: [jsdt['absensi']['hadir'], jsdt['absensi']['izin'],jsdt['absensi']['alpha'], jsdt['absensi']['sakit']],
+            data: [jsdt['absensi']['hadir'], jsdt['absensi']['izin'],jsdt['absensi']['alpha'], jsdt['absensi']['sakit'], jsdt['absensi']['tugas_luar']],
             backgroundColor: warnabar,
             borderColor: warnabar,
             borderWidth: 1
@@ -410,6 +410,19 @@ function initDatatoChart(mode = 'get'){
         NProgress.done();        
     });
 }
+            
+
+function setClock(element) {
+    const checkTime = function(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    const d = new Date();
+    $(element).text(checkTime(d.getHours()) + ":" + checkTime(d.getMinutes()) + ":" + checkTime(d.getSeconds()));
+}
+
 
 //Interval Load Ulang
 setInterval(function() {
@@ -449,6 +462,10 @@ setInterval(function() {
     }, 5 * 1000);
 }, 120 * 1000);
 
+setInterval(() => {
+        setClock(".clock");
+    }, 1000);
+            
 const monthNames=["Januari","Februari","Maret","April","Mei","Juni","Juli","Augustus","September","Oktober","November","Desember"],dateObj=new Date,month=monthNames[dateObj.getMonth()],day=(dateObj.getDate()+"").padStart(2,"0"),year=dateObj.getFullYear(),output=day+" "+month+" "+year;document.querySelector(".tanggal").textContent=output;
 </script>
 </body></html>
