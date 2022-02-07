@@ -37,11 +37,11 @@ body:before {
 }
 .logoatas img {
     height: 150px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .photoyaa {
     position: absolute;
-    top: 108px;
+    top: 45px;
     left: 90px;
     display: flex;
 }
@@ -61,8 +61,8 @@ body:before {
 
 .photoyaa .kiri, .photoyaa .kanan {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     border-radius: 50%;
@@ -77,103 +77,51 @@ body:before {
     border-top: 5px solid #ffc315;
     border-bottom: 5px solid #ffc315;
 }
-.deck {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  overflow: hidden;display: flex;align-items: center;
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.deck:before,
-.deck:after {
-  content: '';
-  width: 100%;
-  height: 50%;
-  position: absolute;
-  left: 0;
-  background: #fff;
-  transition: transform 1s ease;
+.splash .logo {
+    width: 150px;
 }
 
-.deck:before {
-  top: 0;
+.splash.pakbiro {
+    z-index: 9;
 }
 
-.deck:after {
-  bottom: 0;
+.splash.pakbiro .logo {
+    width: 220px;
+    border-radius: 50%;
 }
 
-body.is-over .deck:before {
-  -webkit-transform: translate3d(0, -100vw, 0);
-  transform: translate3d(0, -100vw, 0);
+.splash.pakbiro .text.nama {
+    color: #000;
+    font-size: 18px;
 }
 
-body.is-over .deck:after {
-  -webkit-transform: translate3d(0, 100vw, 0);
-  transform: translate3d(0, 100vw, 0);
+.splash.pakbiro .text.as {
+    font-size: 18px;
+    line-height: 14px;
 }
 
-.text {
-    width: 14em;
-    height: 2.2em;
-    z-index: 20;
-    font-size: 2rem;
-    line-height: 1em;
-    font-weight: 700;
+.splash .text {
     color: #009d54;
-    position: absolute;
-    left: 50%;
-    margin-left: -7em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
-}
-
-.text:before,
-.text:after {
-  content: attr(title);
-  display: block;
-  overflow: hidden;
-  transition: transform 1s ease;
-}
-
-.text:before {
-  height: 1.1em;
-  position: relative;
-  z-index: 20;
-}
-
-.is-over .text:before {
-  -webkit-transform: translate3d(0, -100vw, 0);
-  transform: translate3d(0, -100vw, 0);
-}
-
-.text:after {
-  width: inherit;
-  padding-bottom: .09em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  vertical-align: bottom;
-  clip: rect(1.1em auto auto auto);
-}
-
-.is-over .text:after {
-  -webkit-transform: translate3d(0, 100vw, 0);
-  transform: translate3d(0, 100vw, 0);
-}
-.deck .logo {
-    position: absolute;
-    top: 220px;
-    left: 50%;
-    width: 180px;
-    margin-left: -90px;transition: opacity 1s ease;opacity:1;animation-delay: 2s;
-}
-
-.is-over .deck .logo{
-    opacity:0;animation-delay: 0s;
 }
 </style>
 <script>
@@ -182,9 +130,15 @@ body.is-over .deck:after {
     </head>
     <body>
 
-        <div class="deck js-scene">
+        <div class="splash">
             <img src='img/logopemprovsu.png' class='logo'/>
-            <div class="text centered" title="Selamat Datang di Biro Umum Pemprovsu"></div>
+            <span class="text">Selamat Datang di<br>Biro Umum Pemprovsu</span>
+          </div>
+
+          <div class="splash pakbiro">
+            <img src='img/kabiro.jpg' class='logo'/>
+            <span class="text nama">M. MAHFULLAH PRATAMA DAULAY, S.STP, M.AP</span>
+            <span class="text as">KEPALA BIRO UMUM SETDA PROVSU</span>
           </div>
 
         <div class='photoyaa'>
@@ -199,8 +153,8 @@ body.is-over .deck:after {
         <div class="row w-100">
             <div class='col-md-12 mb-5 text-center logoatas'>
                 <img src='img/logopemprovsu.png'>
-                <h2>DASHBOARD BIRO UMUM</h2>
-                <h4 class='tanggal'></h4>
+                <h3>DASHBOARD BIRO UMUM</h3>
+                <h5 class='tanggal'></h5>
             </div>
             <div class='col-md-12'>
                 <div class='slideinah'>
@@ -209,7 +163,7 @@ body.is-over .deck:after {
                         <div class="card m-2">
                             <div class="card-header">
                                 <div class="header-title">
-                                    <h4 class="card-title">E-Arsip</h4>
+                                    <h5 class="card-title">E-Arsip</h5>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -223,7 +177,7 @@ body.is-over .deck:after {
                         <div class="card m-2">
                             <div class="card-header">
                                 <div class="header-title">
-                                    <h4 class="card-title">E-Absensi</h4>
+                                    <h5 class="card-title">E-Absensi Non ASN</h5>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -237,7 +191,7 @@ body.is-over .deck:after {
                         <div class="card m-2">
                             <div class="card-header">
                                 <div class="header-title">
-                                    <h4 class="card-title">E-Tamu</h4>
+                                    <h5 class="card-title">E-Tamu</h5>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -277,7 +231,7 @@ body.is-over .deck:after {
                 </div>
             </div>
             <div class='col-12 mt-5'>
-                <marquee id='runningteks' class='mt-5'>Visi Biro Umum: "Terwujudnya Pelayanan Prima Dalam Penyelenggaraan Ketatausahaan, Administrasi Keuangan, Kepegawaian dan Kerumahtanggan Pimpinan yang Berorientasi pada Sumatera Utara yang Maju, Aman dan Bermartabat" - SUMUT BERMARTABAT - Misi Biro Umum: 1. Melakukan Kordinasi Penyelenggaraan Kearsipan Ketatausahaan Sekretariat Daerah Provinsi Sumatera Utara. 2. Melakukan Koordinasi dengan Penyelenggaraan Administrasi Keuangan dan Kepegawaian Sekretariat Daerah Provinsi Sumatera Utara. 3. Melakukan Koordinasi pelaksanaan Kerumahtanggaan Pimpinan KDH/WKDH serta Sekretaris Daerah Provinsi Sumatera Utara.</marquee>
+                <marquee id='runningteks' class='mt-5'>Visi Biro Umum: "Terwujudnya Pelayanan Prima Dalam Penyelenggaraan Ketatausahaan, Administrasi Keuangan, Kepegawaian dan Kerumahtanggaan Pimpinan yang Berorientasi pada Sumatera Utara yang Maju, Aman dan Bermartabat" - SUMUT BERMARTABAT - Misi Biro Umum: 1. Melakukan Kordinasi Penyelenggaraan Kearsipan Ketatausahaan Sekretariat Daerah Provinsi Sumatera Utara. 2. Melakukan Koordinasi dengan Penyelenggaraan Administrasi Keuan` dan Kepegawaian Sekretariat Daerah Provinsi Sumatera Utara. 3. Melakukan Koordinasi pelaksanaan Kerumahtanggaan Pimpinan KDH/WKDH serta Sekretaris Daerah Provinsi Sumatera Utara.</marquee>
             </div>
         </div>
  <!-- Swiper JS -->
@@ -298,7 +252,7 @@ var warnabar = ['rgb(255, 99, 132)',
       'rgb(153, 102, 255)',
       'rgb(201, 203, 207)'];
 var lblArsip = ['Surat Masuk','Surat Keluar'];
-var lblAbsen = ['Hadir', 'Izin', 'Alpha', 'Sakit'];
+var lblAbsen = ['Hadir', 'Izin', 'Alpha', 'Sakit', 'Tugas Luar'];
 var lblTamu = ['Bertemu','Menunggu','Ditolak','Tidak Direspons'];
 var lvdt = 'Live Data';
 
@@ -358,7 +312,9 @@ myChart2 = new Chart(ctxabsen, {
         animation: false,
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                max: jsdt['absensi']['total_pengguna'],
+                min: 0
             }
         },
         plugins: {
@@ -419,7 +375,20 @@ myChart3 = new Chart(ctxtamu, {
 }
 
 
-function updateChart(a,b=[]){var c=[];for(var d in b)c.push(b[d]);a.data.datasets.pop(),a.data.datasets.push({backgroundColor:warnabar,label:lvdt,borderColor:warnabar,borderWidth:1,data:c}),a.update()}
+function updateChart(a, b = []) {
+    var c = [];
+    for (var d in b) c.push(b[d]);
+    if(a == myChart2){
+        c.shift();
+    }
+    a.data.datasets.pop(), a.data.datasets.push({
+        backgroundColor: warnabar,
+        label: lvdt,
+        borderColor: warnabar,
+        borderWidth: 1,
+        data: c
+    }), a.update()
+}
 
 function initDatatoChart(mode = 'get'){
     getJSON('https://api.allorigins.win/raw?url=https://service.biroumumsumut.id/api/v1/apps-data?get=' + Math.random(), function(err, data) {
@@ -446,7 +415,7 @@ function initDatatoChart(mode = 'get'){
 setInterval(function() {
     NProgress.start();
     initDatatoChart();    
-}, 10 * 1000);
+}, 10 * 60 * 1000);
 
 initDatatoChart();
 
@@ -463,14 +432,20 @@ $(document).ready(function(){
 
 //hilangkan splash screen awal
 setTimeout(function() {
-    document.body.classList.toggle("is-over");
+    $('.splash:not(.pakbiro)').fadeOut();
+    setTimeout(function() {
+        $('.splash.pakbiro').fadeOut();
+    }, 5 * 1000);
 }, 5 * 1000);
 
 //Interval setiap 1 menit sekali kembali ke Splash Screen lagi
 setInterval(function() {
-    document.body.classList.toggle("is-over");
+    $('.splash').fadeIn();
     setTimeout(function() {
-        document.body.classList.toggle("is-over");
+        $('.splash:not(.pakbiro)').fadeOut();
+        setTimeout(function() {
+            $('.splash.pakbiro').fadeOut();
+        }, 5 * 1000);
     }, 5 * 1000);
 }, 120 * 1000);
 
