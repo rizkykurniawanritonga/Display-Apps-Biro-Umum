@@ -100,7 +100,7 @@ body:before {
 }
 
 .splash.pakbiro .logo {
-    width: 220px;
+    width: 250px;
     border-radius: 50%;
 }
 
@@ -231,7 +231,7 @@ body:before {
                 </div>
             </div>
             <div class='col-12 mt-5'>
-                <marquee id='runningteks' class='mt-5'>Visi Biro Umum: "Terwujudnya Pelayanan Prima Dalam Penyelenggaraan Ketatausahaan, Administrasi Keuangan, Kepegawaian dan Kerumahtanggaan Pimpinan yang Berorientasi pada Sumatera Utara yang Maju, Aman dan Bermartabat" - SUMUT BERMARTABAT - Misi Biro Umum: 1. Melakukan Kordinasi Penyelenggaraan Kearsipan Ketatausahaan Sekretariat Daerah Provinsi Sumatera Utara. 2. Melakukan Koordinasi dengan Penyelenggaraan Administrasi Keuan` dan Kepegawaian Sekretariat Daerah Provinsi Sumatera Utara. 3. Melakukan Koordinasi pelaksanaan Kerumahtanggaan Pimpinan KDH/WKDH serta Sekretaris Daerah Provinsi Sumatera Utara.</marquee>
+                <marquee id='runningteks' class='mt-5'>Visi Biro Umum: "Terwujudnya Pelayanan Prima Dalam Penyelenggaraan Ketatausahaan, Administrasi Keuangan, Kepegawaian dan Kerumahtanggaan Pimpinan yang Berorientasi pada Sumatera Utara yang Maju, Aman dan Bermartabat"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- SUMUT BERMARTABAT -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misi Biro Umum: 1. Melakukan Kordinasi Penyelenggaraan Kearsipan Ketatausahaan Sekretariat Daerah Provinsi Sumatera Utara.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Melakukan Koordinasi dengan Penyelenggaraan Administrasi Keuangan dan Kepegawaian Sekretariat Daerah Provinsi Sumatera Utara.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Melakukan Koordinasi pelaksanaan Kerumahtanggaan Pimpinan KDH/WKDH serta Sekretaris Daerah Provinsi Sumatera Utara.</marquee>
             </div>
         </div>
  <!-- Swiper JS -->
@@ -451,9 +451,12 @@ setTimeout(function() {
     }, 5 * 1000);
 }, 5 * 1000);
 
+getTanggal();
+
 //Interval setiap 1 menit sekali kembali ke Splash Screen lagi
 setInterval(function() {
     $('.splash').fadeIn();
+    getTanggal();
     setTimeout(function() {
         $('.splash:not(.pakbiro)').fadeOut();
         setTimeout(function() {
@@ -466,6 +469,8 @@ setInterval(() => {
         setClock(".clock");
     }, 1000);
             
-const monthNames=["Januari","Februari","Maret","April","Mei","Juni","Juli","Augustus","September","Oktober","November","Desember"],dateObj=new Date,month=monthNames[dateObj.getMonth()],day=(dateObj.getDate()+"").padStart(2,"0"),year=dateObj.getFullYear(),output=day+" "+month+" "+year;document.querySelector(".tanggal").textContent=output;
+function getTanggal(){
+    const monthNames=["Januari","Februari","Maret","April","Mei","Juni","Juli","Augustus","September","Oktober","November","Desember"],dateObj=new Date,month=monthNames[dateObj.getMonth()],day=(dateObj.getDate()+"").padStart(2,"0"),year=dateObj.getFullYear(),output=day+" "+month+" "+year;document.querySelector(".tanggal").textContent=output;
+}
 </script>
 </body></html>
